@@ -21,6 +21,10 @@ class Constants:
     AIRBORNE_INTERCEPT = os.path.join("Assets", "AirborneIntercept.png")
     AI_MK_IV_TRANSPARENT = os.path.join("Assets", "AI_MK_IV_TRANS_1024.png")
     STARRY_NIGHT = os.path.join("Assets", "StarryNight.jpg")
+    AI_MK4_RECEIVER = os.path.join("Assets", "AI_MK4_Receiver.jpg")
+    AI_MK4_INDICATOR = os.path.join("Assets", "AI_MK4_Indicator.jpg")
+    AI_MK4_TRACE = os.path.join("Assets", "AI_MK4_Trace.jpg")
+
 
     AI_MK_IV_TRANSPARENT_512 = os.path.join("Assets", "AI_MK_IV_TRANS_512.png")
     CROSS_HAIRS = os.path.join("Assets", "CrossHairs.png")

@@ -26,7 +26,7 @@ class Scene:
 
         for event in events:
              if event.type == pygame.KEYUP:
-                 if event.key == pygame.K_ESCAPE:
+                 if event.key == pygame.K_ESCAPE or event.key == pygame.K_b:
                      self.getGame().changeScene(Enums.Scene.FRONT)
 
     def clearText(self):

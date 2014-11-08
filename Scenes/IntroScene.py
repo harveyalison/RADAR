@@ -82,8 +82,9 @@ class IntroScene(Scene):
         self.addText('Instructions:', 30, 480, Colours.GREEN, Colours.BLACK, 24)        
         self.addText('Use the joystick to select an option', 30, 510, Colours.GREEN, Colours.BLACK, 24)        
         self.addText('Press the green button for more information', 30, 540, Colours.GREEN, Colours.BLACK, 24)
+        self.addText('Press the blue button to return to the front screen', 30, 570, Colours.GREEN, Colours.BLACK, 24)
         if self.__selectedOption == Enums.IntroOptions.AI_MK_IV:
-            self.addText('Press the red button for a simulation', 30, 570, Colours.GREEN, Colours.BLACK, 24)
+            self.addText('Press the red button for a simulation', 30, 600, Colours.GREEN, Colours.BLACK, 24)
         
         Scene.render(self)
         
@@ -130,30 +131,30 @@ class IntroScene(Scene):
  
             # Events that cause us to return to main
             elif event.type == pygame.KEYUP and self.__selectedOption == Enums.IntroOptions.AI_MK_VIII:
-                if event.key == ord('c') or event.key == pygame.K_RETURN:
+                if event.key == pygame.K_c or event.key == pygame.K_RETURN:
                     self.getGame().changeScene(Enums.Scene.AI_MK_VIII_INFO) 
-                if event.key == ord('a'):
+                if event.key == pygame.K_a:
                     self.getGame().changeScene(Enums.Scene.AI_MK_VIII_SIMULATOR) 
             elif event.type == pygame.KEYUP and self.__selectedOption == Enums.IntroOptions.AI_MK_IV:
-                if event.key == ord('c') or event.key == pygame.K_RETURN:
+                if event.key == pygame.K_c or event.key == pygame.K_RETURN:
                     self.getGame().changeScene(Enums.Scene.AI_MK_IV_INFO) 
-                if event.key == ord('a'):
+                if event.key == pygame.K_a:
                     self.getGame().changeScene(Enums.Scene.AI_MK_IV_SIMULATOR) 
             elif event.type == pygame.KEYUP and self.__selectedOption == Enums.IntroOptions.WHAT_IS_RADAR:
-                if event.key == ord('c') or event.key == pygame.K_RETURN:
+                if event.key == pygame.K_c or event.key == pygame.K_RETURN:
                     self.getGame().changeScene(Enums.Scene.WHAT_IS_RADAR) 
             elif event.type == pygame.KEYUP and self.__selectedOption == Enums.IntroOptions.AIRBORNE_INTERCEPT:
-                if event.key == ord('c') or event.key == pygame.K_RETURN:
+                if event.key == pygame.K_c or event.key == pygame.K_RETURN:
                     self.getGame().changeScene(Enums.Scene.AIRBORNE_INTERCEPT) 
             elif event.type == pygame.KEYUP and self.__selectedOption == Enums.IntroOptions.ASV_MK_II:
-                if event.key == ord('c') or event.key == pygame.K_RETURN:
+                if event.key == pygame.K_c or event.key == pygame.K_RETURN:
                     self.getGame().changeScene(Enums.Scene.ASV_MK_II_INFO) 
-                if event.key == ord('a'):
+                if event.key == pygame.K_a:
                     self.getGame().changeScene(Enums.Scene.ASV_MK_II_SIMULATOR)
             elif event.type == pygame.KEYUP and self.__selectedOption == Enums.IntroOptions.AI_MK_VIII:
-                if event.key == ord('c') or event.key == pygame.K_RETURN:
+                if event.key == pygame.K_c or event.key == pygame.K_RETURN:
                     self.getGame().changeScene(Enums.Scene.AI_MK_X_INFO) 
-                if event.key == ord('a'):
+                if event.key == pygame.K_a:
                     self.getGame().changeScene(Enums.Scene.AI_MK_X_SIMULATOR)
                      
         
