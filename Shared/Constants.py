@@ -17,6 +17,8 @@ class Constants:
     ASV_MK_II = os.path.join("Assets", "ASV MK II.png")
     AI_MK_IV = os.path.join("Assets", "AI MK IV.png")
     AI_MK_VIII = os.path.join("Assets", "AI MK VIII.png")
+    AI_MK_VIII_RX = os.path.join("Assets", "AI_MK_VIII_RX.jpg")
+
     AI_MK_X = os.path.join("Assets", "AI MK X.png")
     AIRBORNE_INTERCEPT = os.path.join("Assets", "AirborneIntercept.png")
     AI_MK_IV_TRANSPARENT = os.path.join("Assets", "AI_MK_IV_TRANS_1024.png")

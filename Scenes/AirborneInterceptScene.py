@@ -3,21 +3,22 @@ from Shared.Colours import *
 
 class AirborneInterceptScene(Scene):
 
-    def __init__(self, game):
-        Scene.__init__(self, game)
+    def __init__(self, game=None):
+        if game is not None:
+            Scene.__init__(self, game)
 
     def render(self):
        
-        self.clearText()
+        self.clear_text()
 
         # Draw Title
-        self.addText('Airborne Intercept', 285, 20, Colours.GREEN, Colours.BLACK, 32) 
+        self.add_text('Airborne Intercept', 285, 20, Colours.GREEN, Colours.BLACK, 32)
 
         Scene.render(self)
 
         
-    def handleEvents(self, events):
-        Scene.handleEvents(self, events)
+    def handle_events(self, events):
+        Scene.handle_events(self, events)
 
              
                 
