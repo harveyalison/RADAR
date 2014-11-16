@@ -16,9 +16,11 @@ class FrontScene(Scene):
             self.__catsEyesSprite = pygame.image.load(Constants.CATS_EYES)
             self.__starryNightSprite = pygame.image.load(Constants.STARRY_NIGHT)
             self.__cockpitSprite = pygame.image.load(Constants.BEAUFIGHTER_COCKPIT)
+            self.__greenButtonSprite = pygame.image.load(Constants.ARCADE_GREEN)
 
         self.__fighterFading = 'IN'
-        self.__fighterPosition = [900.0, 20.0]
+        self.__initialFighterPosition = [900.0, 100.0]
+        self.__fighterPosition = self.__initialFighterPosition
         self.__fighterSize = [128.0, 25.0]
         self.__alpha = 0
         self.__shooting = False
@@ -27,7 +29,7 @@ class FrontScene(Scene):
     def render(self):
          
         # Draw starry background
-        self.get_game().screen.blit(self.__starryNightSprite, (0, 0))
+        self.get_game().screen.blit(self.__starryNightSprite, (0, 80))
 
         # Draw fighter
         fighterSpriteScaled = pygame.transform.scale(self.__nightVisionFighterSprite, (int(self.__fighterSize[0]), int(self.__fighterSize[1])))
@@ -36,24 +38,24 @@ class FrontScene(Scene):
             
         # Draw shooting and explosion, if required
         if self.__shooting:
-            self.get_game().screen.blit(self.__explosionSprite, (374, 50))
-            self.get_game().screen.blit(self.__leftGunSprite, (364, 100))
-            self.get_game().screen.blit(self.__rightGunSprite, (474, 100))
+            self.get_game().screen.blit(self.__explosionSprite, (374, 130))
+            self.get_game().screen.blit(self.__leftGunSprite, (364, 180))
+            self.get_game().screen.blit(self.__rightGunSprite, (474, 180))
 
         # Draw cockpit
-        self.get_game().screen.blit(self.__cockpitSprite, (0, 0))
+        self.get_game().screen.blit(self.__cockpitSprite, (0, 80))
 
         # Draw cats eyes
-        self.blit_alpha2(self.get_game().screen, self.__catsEyesSprite, (0, 0), self.__alpha)
-        font = pygame.font.Font(None, 32)
-        self.blit_alpha2(self.get_game().screen, font.render('RADAR gives you...', True, Colours.GREEN, Colours.BLACK), (130, 475), self.__alpha)
-        self.blit_alpha2(self.get_game().screen, font.render('Cats eyes!', True, Colours.GREEN, Colours.BLACK), (700, 475), self.__alpha)
+        self.blit_alpha2(self.get_game().screen, self.__catsEyesSprite, (0, 80), self.__alpha)
 
+        # Draw label at the top
+        self.clear_text()
+        self.add_text('RADAR - seeing in the dark!', 200, 20, Colours.GREEN, Colours.BLACK, 64)
 
         # Draw Labels at bottom
-        self.clear_text()
-        self.add_text('WWII Night Fighter RADAR Interception', 300, 670, Colours.GREEN, Colours.BLACK, 32)
-        self.add_text('Press the green button to find out more!', 300, 720, Colours.GREEN, Colours.BLACK, 32)
+        self.add_text('Press the green button to find out more!', 300, 735, Colours.GREEN, Colours.BLACK, 32)
+        self.get_game().screen.blit(self.__greenButtonSprite, (250, 730))
+        self.get_game().screen.blit(self.__greenButtonSprite, (735, 730))
 
         Scene.render(self)
 
@@ -65,7 +67,7 @@ class FrontScene(Scene):
             self.__shootingCounter += 1
             if self.__shootingCounter >= 200:
                 self.__shooting = False
-                self.__fighterPosition = [900.0, 20, 0]
+                self.__fighterPosition = self.__initialFighterPosition
         elif self.__fighterPosition[0] <= 500:
             self.__shooting = True
             self.__shootingCounter = 0
