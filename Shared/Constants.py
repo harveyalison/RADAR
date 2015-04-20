@@ -26,6 +26,7 @@ class Constants:
     AI_MK4_RECEIVER = os.path.join("Assets", "AI_MK4_Receiver.jpg")
     AI_MK4_INDICATOR = os.path.join("Assets", "AI_MK4_Indicator.jpg")
     AI_MK4_TRACE = os.path.join("Assets", "AI_MK4_Trace.jpg")
+    AI_MK4_VOICE = os.path.join("Assets", "AI_MK4_Voice.ogg")
 
     ARCADE_RED = os.path.join("Assets", "arcade_red.png")
     ARCADE_GREEN = os.path.join("Assets", "arcade_green.png")

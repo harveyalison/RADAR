@@ -19,12 +19,14 @@ class FrontScene(Scene):
             self.__greenButtonSprite = pygame.image.load(Constants.ARCADE_GREEN)
 
         self.__fighterFading = 'IN'
-        self.__initialFighterPosition = [900.0, 100.0]
+        self.__initialFighterPosition = self.start_position()
         self.__fighterPosition = self.__initialFighterPosition
         self.__fighterSize = [128.0, 25.0]
         self.__alpha = 0
         self.__shooting = False
         self.__shootingCounter = 0
+
+
 
     def render(self):
          
@@ -67,7 +69,7 @@ class FrontScene(Scene):
             self.__shootingCounter += 1
             if self.__shootingCounter >= 200:
                 self.__shooting = False
-                self.__fighterPosition = self.__initialFighterPosition
+                self.__fighterPosition = self.start_position()
         elif self.__fighterPosition[0] <= 500:
             self.__shooting = True
             self.__shootingCounter = 0
@@ -94,7 +96,6 @@ class FrontScene(Scene):
             else:
                 self.__fighterFading = 'IN'
 
-
     def handle_events(self, events):
         #Scene.handleEvents(self, events)
 
@@ -110,7 +111,6 @@ class FrontScene(Scene):
                     exit()
 
                 if event.key == ord('c') or event.key == pygame.K_RETURN or event.key == pygame.K_KP_ENTER:
-                     
                     self.get_game().change_scene(Enums.Scene.INTRO)
 
     @staticmethod
@@ -122,3 +122,7 @@ class FrontScene(Scene):
         temp.blit(source, (0, 0))
         temp.set_alpha(opacity)        
         target.blit(temp, location)
+
+    @staticmethod
+    def start_position():
+        return [900.0, 100.0]

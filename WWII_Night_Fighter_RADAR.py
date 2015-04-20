@@ -1,11 +1,7 @@
 from Scenes import *
 from Shared.Constants import *
 
-
 class WWIINightFighterRadar:
-    """
-    A Pygame based
-    """
 
     def __init__(self):
         pygame.init()
@@ -14,8 +10,9 @@ class WWIINightFighterRadar:
 
         self.__clock = pygame.time.Clock()
 
-        # size = (pygame.display.Info().current_w, pygame.display.Info().current_h)
-        # self.screen = pygame.display.set_mode(size, pygame.DOUBLEBUF|pygame.FULLSCREEN, 32)
+        # Un-comment these lines, and comment out the one below, to run full screen
+        #size = (pygame.display.Info().current_w, pygame.display.Info().current_h)
+        #self.screen = pygame.display.set_mode(size, pygame.DOUBLEBUF|pygame.FULLSCREEN, 32)
 
         self.screen = pygame.display.set_mode(Constants.SCREEN_SIZE, pygame.DOUBLEBUF, 32)
 
@@ -69,7 +66,10 @@ class WWIINightFighterRadar:
 
 
     def change_scene(self, scene):
+        pygame.mixer.stop()
         self.__currentScene = scene
+        self.__scenes[self.__currentScene].start()
+
 
     def play_sound(self, soundClip):
         sound = self.__sounds[soundClip]

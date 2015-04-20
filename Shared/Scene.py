@@ -19,8 +19,11 @@ class Scene:
     def updateState(self):
         pass
 
+    def start(self):
+        self.__TICKS_SINCE_LAST_EVENT = 0
+
     def handle_events(self, events):
-        if self.__TICKS_SINCE_LAST_EVENT == 2000:
+        if self.__TICKS_SINCE_LAST_EVENT == 2500:
             self.get_game().change_scene(Enums.Scene.FRONT)
 
         self.__TICKS_SINCE_LAST_EVENT += 1
