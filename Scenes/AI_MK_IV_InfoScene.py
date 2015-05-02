@@ -11,6 +11,7 @@ class AI_MK_IV_InfoScene(Scene):
             Scene.__init__(self, game)
             self.__AI_MK_IV_RECEIVER_Sprite = pygame.image.load(Constants.AI_MK4_RECEIVER)
             self.__AI_MK4_INDICATOR_Sprite = pygame.image.load(Constants.AI_MK4_INDICATOR)
+            self.__AI_MK4_MIXER_Sprite = pygame.image.load(Constants.AI_MK_IV_MIXER)
             self.__AI_MK4_TRACE_Sprite = pygame.image.load(Constants.AI_MK4_TRACE)
             self.__AI_MK4_VOICE_Sound = pygame.mixer.Sound(Constants.AI_MK4_VOICE)
 
@@ -131,6 +132,7 @@ class AI_MK_IV_InfoScene(Scene):
         self.add_text('', 20, 630, Colours.GREEN, Colours.BLACK, 28)
 
         self.get_game().screen.blit(self.__AI_MK4_INDICATOR_Sprite, (600, 80))
+        self.get_game().screen.blit(self.__AI_MK4_MIXER_Sprite, (600, 400))
 
     def renderPage3(self):
         self.add_text('THE INDICATOR UNIT (Type 48A)', 20, 80, Colours.GREEN, Colours.BLACK, 32)

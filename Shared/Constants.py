@@ -33,6 +33,7 @@ class Constants:
     ARCADE_BLUE = os.path.join("Assets", "arcade_blue.png")
 
     AI_MK_IV_TRANSPARENT_512 = os.path.join("Assets", "AI_MK_IV_TRANS_512.png")
+    AI_MK_IV_MIXER = os.path.join("Assets", "AI_MK_IV_Mixer.png")
     CROSS_HAIRS = os.path.join("Assets", "CrossHairs.png")
 
     CATS_EYES = os.path.join("Assets", "CatsEyes.png")
