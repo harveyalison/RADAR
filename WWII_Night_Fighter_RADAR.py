@@ -10,11 +10,17 @@ class WWIINightFighterRadar:
 
         self.__clock = pygame.time.Clock()
 
+        # If running in the museum, it is set to run at startup on
+        # a windows PC. THis delay is required to allow the other
+        # processes on that PC to finish starting up. Otherwise
+        # they grab focus...
+        #pygame.time.delay(30000)
+
         # Un-comment these lines, and comment out the one below, to run full screen
         #size = (pygame.display.Info().current_w, pygame.display.Info().current_h)
-        #self.screen = pygame.display.set_mode(size, pygame.DOUBLEBUF|pygame.FULLSCREEN, 32)
+        #self.screen = pygame.display.set_mode(size, pygame.FULLSCREEN)
 
-        self.screen = pygame.display.set_mode(Constants.SCREEN_SIZE, pygame.DOUBLEBUF, 32)
+        self.screen = pygame.display.set_mode(Constants.SCREEN_SIZE)
 
         pygame.mouse.set_visible(0)
 

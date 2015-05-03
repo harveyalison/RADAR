@@ -1,5 +1,7 @@
+import time
 from Shared.Scene import *
 from Shared.Colours import *
+from Shared.Constants import *
 
 class AI_MK_X_InfoScene(Scene):
 

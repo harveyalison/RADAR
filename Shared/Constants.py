@@ -1,7 +1,7 @@
 import os
 
 class Constants:
-    SCREEN_SIZE = [1024, 768]
+    SCREEN_SIZE = [1280, 800]
     FPS = 30 # frames per second, the general speed of the program
     STATUSHEIGHT = 50
     NIGHT_FIGHTER_SIZE = [160, 31]

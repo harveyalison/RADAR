@@ -24,67 +24,67 @@ class IntroScene(Scene):
         self.clear_text()
 
         # Draw Title
-        self.add_text('WWII Night Fighter RADAR Interception', 285, 20, Colours.GREEN, Colours.BLACK, 32)
+        self.add_text('WWII Night Fighter RADAR Interception', 420, 20, Colours.YELLOW, Colours.BLACK, 32)
 
         # Top row
 
         # Draw 'What is RADAR?'image and text
-        self.get_game().screen.blit(self.__whatIsRadarSprite, (30, 70))
-        self.add_text('What is RADAR?', 30, 230, Colours.GREEN, Colours.BLACK, 24)
+        self.get_game().screen.blit(self.__whatIsRadarSprite, (158, 90))
+        self.add_text('What is RADAR?', 158, 250, Colours.YELLOW, Colours.BLACK, 24)
 
         if self.__selectedOption == Enums.IntroOptions.WHAT_IS_RADAR:
-            selectedRect = pygame.Rect(20, 60, 240, 195)
+            selectedRect = pygame.Rect(148, 80, 240, 195)
             pygame.draw.rect(self.get_game().screen, Colours.RED, selectedRect, 2)
 
         # Draw AI MK IV image and text
-        self.get_game().screen.blit(self.__AI_Mk_IV_Sprite, (300, 70))
-        self.add_text('AI MK IV', 300, 230, Colours.GREEN, Colours.BLACK, 24)
+        self.get_game().screen.blit(self.__AI_Mk_IV_Sprite, (428, 90))
+        self.add_text('AI MK IV', 428, 250, Colours.YELLOW, Colours.BLACK, 24)
 
         if self.__selectedOption == Enums.IntroOptions.AI_MK_IV:
-            selectedRect = pygame.Rect(290, 60, 425, 195)
+            selectedRect = pygame.Rect(418, 80, 425, 195)
             pygame.draw.rect(self.get_game().screen, Colours.RED, selectedRect, 2)
 
         # Draw ASV MK II image and text
-        self.get_game().screen.blit(self.__ASV_Mk_II_Sprite, (750, 70))
-        self.add_text('ASV MK II', 750, 230, Colours.GREEN, Colours.BLACK, 24)
+        self.get_game().screen.blit(self.__ASV_Mk_II_Sprite, (878, 90))
+        self.add_text('ASV MK II', 878, 250, Colours.YELLOW, Colours.BLACK, 24)
 
         if self.__selectedOption == Enums.IntroOptions.ASV_MK_II:
-            selectedRect = pygame.Rect(740, 60, 270, 195)
+            selectedRect = pygame.Rect(868, 80, 270, 195)
             pygame.draw.rect(self.get_game().screen, Colours.RED, selectedRect, 2)
 
         # Second row
 
         # Draw 'Airborne Interception' image and text
-        self.get_game().screen.blit(self.__airborneIntercept_Sprite, (30, 270))
-        self.add_text('Airborne Intercept', 30, 430, Colours.GREEN, Colours.BLACK, 24)
+        self.get_game().screen.blit(self.__airborneIntercept_Sprite, (158, 290))
+        self.add_text('Airborne Intercept', 158, 450, Colours.YELLOW, Colours.BLACK, 24)
 
         if self.__selectedOption == Enums.IntroOptions.AIRBORNE_INTERCEPT:
-            selectedRect = pygame.Rect(20, 260, 240, 195)
+            selectedRect = pygame.Rect(148, 280, 240, 195)
             pygame.draw.rect(self.get_game().screen, Colours.RED, selectedRect, 2)
             
         # Draw AI MK VIII image and text
-        self.get_game().screen.blit(self.__AI_MK_VIII_Sprite, (300, 270))
-        self.add_text('AI MK VIII', 300, 430, Colours.GREEN, Colours.BLACK, 24)
+        self.get_game().screen.blit(self.__AI_MK_VIII_Sprite, (428, 290))
+        self.add_text('AI MK VIII', 428, 450, Colours.YELLOW, Colours.BLACK, 24)
 
         if self.__selectedOption == Enums.IntroOptions.AI_MK_VIII:
-            selectedRect = pygame.Rect(290, 260, 425, 195)
+            selectedRect = pygame.Rect(418, 280, 425, 195)
             pygame.draw.rect(self.get_game().screen, Colours.RED, selectedRect, 2)
 
         # Draw AI MK X image and text
-        self.get_game().screen.blit(self.__AI_MK_X_Sprite, (750, 270))
-        self.add_text('AI MK X', 750, 430, Colours.GREEN, Colours.BLACK, 24)
+        self.get_game().screen.blit(self.__AI_MK_X_Sprite, (878, 290))
+        self.add_text('AI MK X', 878, 450, Colours.YELLOW, Colours.BLACK, 24)
 
         if self.__selectedOption == Enums.IntroOptions.AI_MK_X:
-            selectedRect = pygame.Rect(740, 260, 270, 195)
+            selectedRect = pygame.Rect(868, 280, 270, 195)
             pygame.draw.rect(self.get_game().screen, Colours.RED, selectedRect, 2)
 
-        # Draw Instructions  
-        self.add_text('Instructions:', 30, 480, Colours.GREEN, Colours.BLACK, 24)
-        self.add_text('Use the joystick to select an option', 30, 510, Colours.GREEN, Colours.BLACK, 24)
-        self.add_text('Press the green button for more information', 30, 540, Colours.GREEN, Colours.BLACK, 24)
-        self.add_text('Press the blue button to return to the front screen', 30, 570, Colours.GREEN, Colours.BLACK, 24)
+        # Draw Instructions
+        self.add_text('Instructions:', 158, 500, Colours.YELLOW, Colours.BLACK, 32)
+        self.add_text('Use the joystick to select an option', 158, 530, Colours.YELLOW, Colours.BLACK, 32)
+        self.add_text('Press the green button for more information', 158, 560, Colours.YELLOW, Colours.BLACK, 32)
+        self.add_text('Press the blue button to return to the front screen', 158, 590, Colours.YELLOW, Colours.BLACK, 32)
         if self.__selectedOption == Enums.IntroOptions.AI_MK_IV:
-            self.add_text('Press the red button for a simulation', 30, 600, Colours.GREEN, Colours.BLACK, 24)
+            self.add_text('Press the red button for a simulation', 158, 620, Colours.YELLOW, Colours.BLACK, 32)
         
         Scene.render(self)
         
@@ -151,7 +151,7 @@ class IntroScene(Scene):
                     self.get_game().change_scene(Enums.Scene.ASV_MK_II_INFO)
                 if event.key == pygame.K_a:
                     self.get_game().change_scene(Enums.Scene.ASV_MK_II_SIMULATOR)
-            elif event.type == pygame.KEYUP and self.__selectedOption == Enums.IntroOptions.AI_MK_VIII:
+            elif event.type == pygame.KEYUP and self.__selectedOption == Enums.IntroOptions.AI_MK_X:
                 if event.key == pygame.K_c or event.key == pygame.K_RETURN:
                     self.get_game().change_scene(Enums.Scene.AI_MK_X_INFO)
                 if event.key == pygame.K_a:

@@ -2,7 +2,6 @@ from Shared.Constants import *
 from Shared.Scene import *
 from Shared.Enums import *
 
-
 class FrontScene(Scene):
 
     def __init__(self, game=None):
@@ -26,12 +25,10 @@ class FrontScene(Scene):
         self.__shooting = False
         self.__shootingCounter = 0
 
-
-
     def render(self):
          
         # Draw starry background
-        self.get_game().screen.blit(self.__starryNightSprite, (0, 80))
+        self.get_game().screen.blit(self.__starryNightSprite, (128, 80))
 
         # Draw fighter
         fighterSpriteScaled = pygame.transform.scale(self.__nightVisionFighterSprite, (int(self.__fighterSize[0]), int(self.__fighterSize[1])))
@@ -40,24 +37,24 @@ class FrontScene(Scene):
             
         # Draw shooting and explosion, if required
         if self.__shooting:
-            self.get_game().screen.blit(self.__explosionSprite, (374, 130))
-            self.get_game().screen.blit(self.__leftGunSprite, (364, 180))
-            self.get_game().screen.blit(self.__rightGunSprite, (474, 180))
+            self.get_game().screen.blit(self.__explosionSprite, (502, 130))
+            self.get_game().screen.blit(self.__leftGunSprite, (502, 180))
+            self.get_game().screen.blit(self.__rightGunSprite, (602, 180))
 
         # Draw cockpit
-        self.get_game().screen.blit(self.__cockpitSprite, (0, 80))
+        self.get_game().screen.blit(self.__cockpitSprite, (128, 80))
 
         # Draw cats eyes
-        self.blit_alpha2(self.get_game().screen, self.__catsEyesSprite, (0, 80), self.__alpha)
+        self.blit_alpha2(self.get_game().screen, self.__catsEyesSprite, (128, 80), self.__alpha)
 
         # Draw label at the top
         self.clear_text()
-        self.add_text('RADAR - seeing in the dark!', 200, 20, Colours.GREEN, Colours.BLACK, 64)
+        self.add_text('RADAR - seeing in the dark!', 328, 20, Colours.YELLOW, Colours.BLACK, 64)
 
         # Draw Labels at bottom
-        self.add_text('Press the green button to find out more!', 300, 735, Colours.GREEN, Colours.BLACK, 32)
-        self.get_game().screen.blit(self.__greenButtonSprite, (250, 730))
-        self.get_game().screen.blit(self.__greenButtonSprite, (735, 730))
+        self.add_text('Press the green button to find out more!', 428, 735, Colours.YELLOW, Colours.BLACK, 32)
+        self.get_game().screen.blit(self.__greenButtonSprite, (378, 730))
+        self.get_game().screen.blit(self.__greenButtonSprite, (868, 730))
 
         Scene.render(self)
 
@@ -70,7 +67,7 @@ class FrontScene(Scene):
             if self.__shootingCounter >= 200:
                 self.__shooting = False
                 self.__fighterPosition = self.start_position()
-        elif self.__fighterPosition[0] <= 500:
+        elif self.__fighterPosition[0] <= 628:
             self.__shooting = True
             self.__shootingCounter = 0
         else:
@@ -78,7 +75,7 @@ class FrontScene(Scene):
             self.__fighterPosition[1] += 0.2
 
         # Set fighter size
-        sizeScale = (self.__fighterPosition[0] - 500) / 400
+        sizeScale = (self.__fighterPosition[0] - 628) / 400
         self.__fighterSize[0] = 512 - sizeScale * 400
         self.__fighterSize[1] = 100 - sizeScale * 80
 
@@ -125,4 +122,4 @@ class FrontScene(Scene):
 
     @staticmethod
     def start_position():
-        return [900.0, 100.0]
+        return [1028.0, 100.0]
