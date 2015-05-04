@@ -15,6 +15,10 @@ class IntroScene(Scene):
             self.__AI_MK_VIII_Sprite = pygame.image.load(Constants.AI_MK_VIII)
             self.__AI_MK_X_Sprite = pygame.image.load(Constants.AI_MK_X)
             self.__airborneIntercept_Sprite = pygame.image.load(Constants.AIRBORNE_INTERCEPT)
+            self.__greenButtonSprite = pygame.image.load(Constants.ARCADE_GREEN)
+            self.__redButtonSprite = pygame.image.load(Constants.ARCADE_RED)
+            self.__blueButtonSprite = pygame.image.load(Constants.ARCADE_BLUE)
+            self.__joystickSprite = pygame.image.load(Constants.JOYSTICK)
 
         self.__selectedOption = Enums.IntroOptions.WHAT_IS_RADAR
         self.__TICKS_SINCE_LAST_EVENT = 0
@@ -80,11 +84,15 @@ class IntroScene(Scene):
 
         # Draw Instructions
         self.add_text('Instructions:', 158, 500, Colours.YELLOW, Colours.BLACK, 32)
-        self.add_text('Use the joystick to select an option', 158, 530, Colours.YELLOW, Colours.BLACK, 32)
-        self.add_text('Press the green button for more information', 158, 560, Colours.YELLOW, Colours.BLACK, 32)
-        self.add_text('Press the blue button to return to the front screen', 158, 590, Colours.YELLOW, Colours.BLACK, 32)
+        self.get_game().screen.blit(self.__joystickSprite, (158, 538))
+        self.add_text('Use the joystick to select an option', 195, 540, Colours.YELLOW, Colours.BLACK, 32)
+        self.get_game().screen.blit(self.__greenButtonSprite, (158, 578))
+        self.add_text('Green button: more information', 195, 580, Colours.YELLOW, Colours.BLACK, 32)
+        self.get_game().screen.blit(self.__blueButtonSprite, (158, 618))
+        self.add_text('Blue button: home', 195, 620, Colours.YELLOW, Colours.BLACK, 32)
         if self.__selectedOption == Enums.IntroOptions.AI_MK_IV:
-            self.add_text('Press the red button for a simulation', 158, 620, Colours.YELLOW, Colours.BLACK, 32)
+            self.get_game().screen.blit(self.__redButtonSprite, (158, 658))
+            self.add_text('Red button: simulation', 195, 660, Colours.YELLOW, Colours.BLACK, 32)
         
         Scene.render(self)
         

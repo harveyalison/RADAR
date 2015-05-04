@@ -6,7 +6,6 @@ from Shared.Colours import *
 from Shared.Enums import *
 from Shared.Constants import *
 
-
 class AI_MK_IV_SimulatorScene(Scene):
 
     def __init__(self, game=None):
@@ -17,9 +16,11 @@ class AI_MK_IV_SimulatorScene(Scene):
             self.__AI_MK_IV_Sprite = pygame.image.load(Constants.AI_MK_IV_TRANSPARENT_512)
             self.__nightVisionFighterSprite = pygame.image.load(Constants.JU88_NIGHT_REAR)
             self.__explosionSprite = pygame.image.load(Constants.EXPLOSION)
+            self.__greenButtonSprite = pygame.image.load(Constants.ARCADE_GREEN)
+            self.__blueButtonSprite = pygame.image.load(Constants.ARCADE_BLUE)
 
         self.__maximumRange = 3.500
-        self.__crossHairsCentre = (736, 275)
+        self.__crossHairsCentre = (864, 275)
         self.__crossHairsRadius = 200
         self.__shooting = False
 
@@ -30,56 +31,55 @@ class AI_MK_IV_SimulatorScene(Scene):
         self.clear_text()
 
         # Draw Title
-        self.add_text('AI MK IV Simulator!', 30, 30, Colours.GREEN, Colours.BLACK, 32)
+        self.add_text('AI MK IV Simulator', 158, 30, Colours.YELLOW, Colours.BLACK, 32)
 
         # Draw simulation information
-        self.add_text('The pilot can see nothing of the target until he is within', 30, 80, Colours.GREEN, Colours.BLACK, 24)
-        self.add_text('a few hundred yards, and must identify the target', 30, 110, Colours.GREEN, Colours.BLACK, 24)
-        self.add_text('aircraft visually as \'an enemy\' before opening fire.', 30, 140, Colours.GREEN, Colours.BLACK, 24)
-        self.add_text('The left hand screen tells the RADAR operator if the', 30, 170, Colours.GREEN, Colours.BLACK, 24)
-        self.add_text('target is above or below him. This is known as the', 30, 200, Colours.GREEN, Colours.BLACK, 24)
-        self.add_text('\'elevation\'. In practice the RADAR screen is all', 30, 230, Colours.GREEN, Colours.BLACK, 24)
-        self.add_text('green and the echo is not easily seen, but for', 30, 260, Colours.GREEN, Colours.BLACK, 24)
-        self.add_text('demonstration purposes the target echo is shown', 30, 290, Colours.GREEN, Colours.BLACK, 24)
-        self.add_text('yellow. The \'Christmas tree\' noise is due to', 30, 320, Colours.GREEN, Colours.BLACK, 24)
-        self.add_text('reflections from the ground immediately below and', 30, 350, Colours.GREEN, Colours.BLACK, 24)
-        self.add_text('forward of the aircraft. Targets are lost in this noise', 30, 380, Colours.GREEN, Colours.BLACK, 24)
-        self.add_text('and the range is therefore limited to the height of the', 30, 410, Colours.GREEN, Colours.BLACK, 24)
-        self.add_text('aircraft. The RADAR operator gives verbal instructions', 30, 440, Colours.GREEN, Colours.BLACK, 24)
-        self.add_text('to the pilot to bring the aircraft on the correct course', 30, 470, Colours.GREEN, Colours.BLACK, 24)
-        self.add_text('for interception, when the echoes on both screens are', 30, 500, Colours.GREEN, Colours.BLACK, 24)
-        self.add_text('equi-distant either side of the axis. The right hand', 30, 530, Colours.GREEN, Colours.BLACK, 24)
-        self.add_text('screen is similar to the elevation display, but shows', 30, 560, Colours.GREEN, Colours.BLACK, 24)
-        self.add_text('the operator whether the target is to the left or right.', 30, 590, Colours.GREEN, Colours.BLACK, 24)
-        self.add_text('This is known as the \'azimuth\'.', 30, 620, Colours.GREEN, Colours.BLACK, 24)
+        self.add_text('The pilot can see nothing of the target until he is within', 158, 80, Colours.YELLOW, Colours.BLACK, 24)
+        self.add_text('a few hundred yards, and must identify the target', 158, 110, Colours.YELLOW, Colours.BLACK, 24)
+        self.add_text('aircraft visually as \'an enemy\' before opening fire.', 158, 140, Colours.YELLOW, Colours.BLACK, 24)
+        self.add_text('The left hand screen tells the RADAR operator if the', 158, 170, Colours.YELLOW, Colours.BLACK, 24)
+        self.add_text('target is above or below him. This is known as the', 158, 200, Colours.YELLOW, Colours.BLACK, 24)
+        self.add_text('\'elevation\'. In practice the RADAR screen is all', 158, 230, Colours.YELLOW, Colours.BLACK, 24)
+        self.add_text('green and the echo is not easily seen, but for', 158, 260, Colours.YELLOW, Colours.BLACK, 24)
+        self.add_text('demonstration purposes the target echo is shown', 158, 290, Colours.YELLOW, Colours.BLACK, 24)
+        self.add_text('yellow. The \'Christmas tree\' noise is due to', 158, 320, Colours.YELLOW, Colours.BLACK, 24)
+        self.add_text('reflections from the ground immediately below and', 158, 350, Colours.YELLOW, Colours.BLACK, 24)
+        self.add_text('forward of the aircraft. Targets are lost in this noise', 158, 380, Colours.YELLOW, Colours.BLACK, 24)
+        self.add_text('and the range is therefore limited to the height of the', 158, 410, Colours.YELLOW, Colours.BLACK, 24)
+        self.add_text('aircraft. The RADAR operator gives verbal instructions', 158, 440, Colours.YELLOW, Colours.BLACK, 24)
+        self.add_text('to the pilot to bring the aircraft on the correct course', 158, 470, Colours.YELLOW, Colours.BLACK, 24)
+        self.add_text('for interception, when the echoes on both screens are', 158, 500, Colours.YELLOW, Colours.BLACK, 24)
+        self.add_text('equi-distant either side of the axis. The right hand', 158, 530, Colours.YELLOW, Colours.BLACK, 24)
+        self.add_text('screen is similar to the elevation display, but shows', 158, 560, Colours.YELLOW, Colours.BLACK, 24)
+        self.add_text('the operator whether the target is to the left or right.', 158, 590, Colours.YELLOW, Colours.BLACK, 24)
+        self.add_text('This is known as the \'azimuth\'.', 158, 620, Colours.YELLOW, Colours.BLACK, 24)
         # Draw Options
-        self.add_text('Green button: new game | Blue button: home', 30, 680, Colours.GREEN, Colours.BLACK, 24)
+        self.get_game().screen.blit(self.__greenButtonSprite, (158, 660))
+        self.add_text('Green button: new game', 195, 666, Colours.YELLOW, Colours.BLACK, 24)
+        self.get_game().screen.blit(self.__blueButtonSprite, (158, 700))
+        self.add_text('Blue button: home', 195, 706, Colours.YELLOW, Colours.BLACK, 24)
 
         # Draw AI MK IV image
-        self.get_game().screen.blit(self.__AI_MK_IV_Sprite, (480, 550))
+        self.get_game().screen.blit(self.__AI_MK_IV_Sprite, (608, 550))
 
-        self.add_text('Target range (miles): ' + str(self.__targetRange), 460, 10, Colours.GREEN, Colours.BLACK, 16)
-        self.add_text('Target azimuth (deg): ' + str(int(self.__targetAzEl[0])), 460, 25, Colours.GREEN, Colours.BLACK, 16)
-        self.add_text('Target elevation (deg): ' + str(int(self.__targetAzEl[1])), 460, 40, Colours.GREEN, Colours.BLACK, 16)
+        self.add_text('Target range (miles): ' + str(self.__targetRange), 588, 10, Colours.YELLOW, Colours.BLACK, 16)
+        self.add_text('Target azimuth (deg): ' + str(int(self.__targetAzEl[0])), 588, 25, Colours.YELLOW, Colours.BLACK, 16)
+        self.add_text('Target elevation (deg): ' + str(int(self.__targetAzEl[1])), 588, 40, Colours.YELLOW, Colours.BLACK, 16)
 
         fighterSpriteScaled = pygame.transform.scale(self.__nightVisionFighterSprite, (int(self.__targetSize[0]), int(self.__targetSize[1]))) 
         self.get_game().screen.blit(fighterSpriteScaled, (int(self.__targetPos[0] - fighterSpriteScaled.get_width()/2), int(self.__targetPos[1] - fighterSpriteScaled.get_height()/2)))
-
-
-
 
         # Draw shooting and explosion, if required
         if self.__shooting:
             self.get_game().screen.blit(self.__explosionSprite, (self.__crossHairsCentre[0] - self.__explosionSprite.get_width()/2,self.__crossHairsCentre[1] - self.__explosionSprite.get_height()/2))
 
-        self.get_game().screen.blit(self.__crossHairsSprite, (480, 20))
+        self.get_game().screen.blit(self.__crossHairsSprite, (608, 20))
         
         self.drawBackgroundNoise()
 
         # Draw el tube line
-
         rangeratio = self.__targetRange / self.__maximumRange
-        rangex = 595 + (rangeratio * 87)
+        rangex = 723 + (rangeratio * 87)
 
         rangeytop = 0.0
         rangeybot = 0.0
@@ -101,11 +101,11 @@ class AI_MK_IV_SimulatorScene(Scene):
         rangexright = 0.0
 
         if self.__targetAzEl[0] < 0:
-            rangexleft = 810 + self.__targetAzEl[0]/2.5
-            rangexright = 830
+            rangexleft = 938 + self.__targetAzEl[0]/2.5
+            rangexright = 958
         else:
-            rangexleft = 810
-            rangexright = 830 + self.__targetAzEl[0]/2.5
+            rangexleft = 938
+            rangexright = 958 + self.__targetAzEl[0]/2.5
 
         pygame.draw.aaline(self.get_game().screen, Colours.YELLOW, (rangexleft, rangey), (rangexright, rangey))
 
@@ -113,7 +113,7 @@ class AI_MK_IV_SimulatorScene(Scene):
        
     def drawBackgroundNoise(self):
         # Elevation tube
-        for x in xrange(605, 692):
+        for x in xrange(732, 820):
             linelength = random.randint(1,5)
             pygame.draw.aaline(self.get_game().screen, Colours.GREEN, (x, 649), (x, 649-linelength))
             pygame.draw.aaline(self.get_game().screen, Colours.GREEN, (x, 649), (x, 649+linelength))
@@ -121,8 +121,8 @@ class AI_MK_IV_SimulatorScene(Scene):
         # Azimuth tube
         for y in xrange(592, 710):
             linelength = random.randint(1,5)
-            pygame.draw.aaline(self.get_game().screen, Colours.GREEN, (820-linelength, y), (820, y))
-            pygame.draw.aaline(self.get_game().screen, Colours.GREEN, (820+linelength, y), (820, y))
+            pygame.draw.aaline(self.get_game().screen, Colours.GREEN, (948-linelength, y), (948, y))
+            pygame.draw.aaline(self.get_game().screen, Colours.GREEN, (948+linelength, y), (948, y))
 
     def updateTargetRange(self):
         if self.__targetRange >= 0.5:

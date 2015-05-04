@@ -38,18 +38,8 @@ class Constants:
 
     CATS_EYES = os.path.join("Assets", "CatsEyes.png")
 
-    
+    HOW_RADAR_WORKS = os.path.join("Assets", "How_Radar_Works.png")
+    MOBILE_RADAR = os.path.join("Assets", "Mobile_Radar.jpg")
+    JOYSTICK = os.path.join("Assets", "joystick.png")
 
-    #SOUND_FILE_HIT_BRICK = os.path.join("Game", "Assets", "BrickHit.wav")
-    #SOUND_FILE_HIT_BRICK_LIFE = os.path.join("Game", "Assets", "ExtraLife.wav")
-    #SOUND_FILE_HIT_BRICK_SPEED = os.path.join("Game", "Assets", "SpeedUp.wav")
-    #SOUND_FILE_HIT_WALL = os.path.join("Game", "Assets", "WallBounce.wav")
-    #SOUND_FILE_HIT_PAD = os.path.join("Game", "Assets", "PadBounce.wav")
-    #SOUND_FILE_GAMEOVER = os.path.join("Game", "Assets", "GameOver.wav")
-
-    #SOUND_GAMEOVER = 0
-    #SOUND_HIT_BRICK = 1
-    #SOUND_HIT_BRICK_LIFE = 2
-    #SOUND_HIT_BRICK_SPEED = 3
-    #SOUND_HIT_WALL = 4
-    #SOUND_HIT_PAD = 5
+    MK_VIII_IN_BEAUFIGHTER = os.path.join("Assets", "AI_Mk_VIIA_radar_in_Bristol_Beaufighter.jpg")
