@@ -2,7 +2,6 @@ from Shared.Scene import *
 from Shared.Colours import *
 from Shared.Constants import *
 
-
 class WhatIsRadarScene(Scene):
     def __init__(self, game=None):
 
@@ -92,10 +91,10 @@ class WhatIsRadarScene(Scene):
         self.add_text('', 148, 420, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('Radar works in much the same way. The word \'radar\' stands for RAdio Detection And Ranging, which gives a pretty', 148, 450, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('big clue as to what it does and how it works. Imagine an airplane flying at night through thick fog. The pilots can\'t', 148, 480, Colours.YELLOW, Colours.BLACK, 28)
-        self.add_text('see where they\'re going, so they use the radar to help them. ', 148, 510, Colours.YELLOW, Colours.BLACK, 28)
+        self.add_text('see where they\'re going, so they use the radar to help them.', 148, 510, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('An airplane\'s radar is a bit like a torch that uses radio waves instead of light. The plane transmits an intermittent', 148, 540, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('radar beam (so it sends a signal only part of the time) and, for the rest of the time, "listens" out for any reflections of', 148, 570, Colours.YELLOW, Colours.BLACK, 28)
-        self.add_text('that beam from nearby objects. If reflections are detected, the plane knows something is nearby - and it can use the ', 148, 600, Colours.YELLOW, Colours.BLACK, 28)
+        self.add_text('that beam from nearby objects. If reflections are detected, the plane knows something is nearby - and it can use the', 148, 600, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('time taken for the reflections to arrive to figure out how far away it is. In other words, radar is a bit like the', 148, 630, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('echolocation system that "blind" bats use to see and fly in the dark.', 148, 660, Colours.YELLOW, Colours.BLACK, 28)
 
@@ -106,12 +105,12 @@ class WhatIsRadarScene(Scene):
         self.add_text('', 148, 150, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('1: Magnetron generates high-frequency radio waves.', 148, 180, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('2: Duplexer switches magnetron through to antenna.', 148, 210, Colours.YELLOW, Colours.BLACK, 28)
-        self.add_text('3: Antenna acts as transmitter, sending narrow beam of ', 148, 240, Colours.YELLOW, Colours.BLACK, 28)
-        self.add_text('    radio waves through the air. ', 148, 270, Colours.YELLOW, Colours.BLACK, 28)
+        self.add_text('3: Antenna acts as transmitter, sending narrow beam of', 148, 240, Colours.YELLOW, Colours.BLACK, 28)
+        self.add_text('    radio waves through the air.', 148, 270, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('4: Radio waves hit enemy airplane and reflect back.', 148, 300, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('5: Antenna picks up reflected waves during a break between', 148, 330, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('    transmissions. Note that the same antenna acts as both', 148, 360, Colours.YELLOW, Colours.BLACK, 28)
-        self.add_text('    transmitter and receiver, alternately sending out ', 148, 390, Colours.YELLOW, Colours.BLACK, 28)
+        self.add_text('    transmitter and receiver, alternately sending out', 148, 390, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('    radio waves and receiving them.', 148, 420, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('6: Duplexer switches antenna through to receiver unit.', 148, 450, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('7: Computer in receiver unit processes reflected waves.', 148, 480, Colours.YELLOW, Colours.BLACK, 28)
