@@ -32,6 +32,7 @@ class Scene:
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_ESCAPE or event.key == pygame.K_b:
                     self.get_game().change_scene(Enums.Scene.FRONT)
+                    self.__page = 1
 
     def clear_text(self):
         self.__texts = []

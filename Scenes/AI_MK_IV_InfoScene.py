@@ -25,7 +25,7 @@ class AI_MK_IV_InfoScene(Scene):
         self.clear_text()
 
         # Draw Title
-        self.add_text('AI MK IV Airbourne Interception RADAR', 350, 20, Colours.YELLOW, Colours.BLACK, 40)
+        self.add_text('AI MK IV Airbourne Interception Radar', 350, 20, Colours.YELLOW, Colours.BLACK, 40)
 
         # Draw page body
         if self.__page == 1:
@@ -54,8 +54,10 @@ class AI_MK_IV_InfoScene(Scene):
 
                 if event.key == pygame.K_ESCAPE or event.key == ord('b'):
                     self.get_game().change_scene(Enums.Scene.FRONT)
+                    self.__page = 1
                 elif event.key == ord('a'):
                     self.get_game().change_scene(Enums.Scene.AI_MK_IV_SIMULATOR)
+                    self.__page = 1
                 else:
                     pygame.mixer.stop()
 

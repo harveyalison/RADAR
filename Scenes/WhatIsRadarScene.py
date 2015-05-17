@@ -30,10 +30,10 @@ class WhatIsRadarScene(Scene):
 
         # Draw footer
         self.add_text('Green button: find out more', 385, 720, Colours.YELLOW, Colours.BLACK, 32)
-        self.add_text('Blue button: home', 730, 720, Colours.YELLOW, Colours.BLACK, 32)
+        self.add_text('Blue button: home', 740, 720, Colours.YELLOW, Colours.BLACK, 32)
 
         self.get_game().screen.blit(self.__greenButtonSprite, (340, 718))
-        self.get_game().screen.blit(self.__blueButtonSprite, (690, 718))
+        self.get_game().screen.blit(self.__blueButtonSprite, (700, 718))
 
         Scene.render(self)
 
@@ -45,6 +45,7 @@ class WhatIsRadarScene(Scene):
 
                 if event.key == pygame.K_ESCAPE or event.key == ord('b'):
                     self.get_game().change_scene(Enums.Scene.FRONT)
+                    self.__page = 1
                 else:
                     pygame.mixer.stop()
 
@@ -104,7 +105,7 @@ class WhatIsRadarScene(Scene):
         self.add_text('Here\'s a summary of how radar works:', 148, 120, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('', 148, 150, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('1: Magnetron generates high-frequency radio waves.', 148, 180, Colours.YELLOW, Colours.BLACK, 28)
-        self.add_text('2: Duplexer switches magnetron through to antenna.', 148, 210, Colours.YELLOW, Colours.BLACK, 28)
+        self.add_text('2: Switch sends signal through to antenna.', 148, 210, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('3: Antenna acts as transmitter, sending narrow beam of', 148, 240, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('    radio waves through the air.', 148, 270, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('4: Radio waves hit enemy airplane and reflect back.', 148, 300, Colours.YELLOW, Colours.BLACK, 28)
@@ -112,7 +113,7 @@ class WhatIsRadarScene(Scene):
         self.add_text('    transmissions. Note that the same antenna acts as both', 148, 360, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('    transmitter and receiver, alternately sending out', 148, 390, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('    radio waves and receiving them.', 148, 420, Colours.YELLOW, Colours.BLACK, 28)
-        self.add_text('6: Duplexer switches antenna through to receiver unit.', 148, 450, Colours.YELLOW, Colours.BLACK, 28)
+        self.add_text('6: Switch passes signal through to receiver unit.', 148, 450, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('7: Computer in receiver unit processes reflected waves.', 148, 480, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('8: Enemy plane shows up on radar display, with any', 148, 510, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('    other nearby targets.', 148, 540, Colours.YELLOW, Colours.BLACK, 28)

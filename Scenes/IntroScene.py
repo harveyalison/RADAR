@@ -28,13 +28,13 @@ class IntroScene(Scene):
         self.clear_text()
 
         # Draw Title
-        self.add_text('WWII Night Fighter RADAR Interception', 420, 20, Colours.YELLOW, Colours.BLACK, 32)
+        self.add_text('WWII Night Fighter Radar Interception', 420, 20, Colours.YELLOW, Colours.BLACK, 32)
 
         # Top row
 
         # Draw 'What is RADAR?'image and text
         self.get_game().screen.blit(self.__whatIsRadarSprite, (158, 90))
-        self.add_text('What is RADAR?', 158, 250, Colours.YELLOW, Colours.BLACK, 24)
+        self.add_text('What is Radar?', 158, 250, Colours.YELLOW, Colours.BLACK, 24)
 
         if self.__selectedOption == Enums.IntroOptions.WHAT_IS_RADAR:
             selectedRect = pygame.Rect(148, 80, 240, 195)

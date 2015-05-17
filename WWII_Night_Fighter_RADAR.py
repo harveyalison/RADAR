@@ -6,7 +6,7 @@ class WWIINightFighterRadar:
     def __init__(self):
         pygame.init()
         pygame.mixer.init()
-        pygame.display.set_caption("WWII Night Fighter RADAR")
+        pygame.display.set_caption("WWII Night Fighter Radar")
 
         self.__clock = pygame.time.Clock()
 

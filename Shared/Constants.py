@@ -8,7 +8,7 @@ class Constants:
 
     BEAUFIGHTER_COCKPIT = os.path.join("Assets", "BeaufighterCockpit.png")
     EXPLOSION = os.path.join("Assets", "Explosion.png")
-    JU88_NIGHT_REAR = os.path.join("Assets", "JU88_night_rear_large.png")
+    JU88_NIGHT_REAR = os.path.join("Assets", "JU88_night_rear_large_red_glow.png")
     LEFT_GUN = os.path.join("Assets", "LeftGun.png")
     RIGHT_GUN = os.path.join("Assets", "RightGun.png")
     NIGHT_VISION_FIGHTER = os.path.join("Assets", "NightVisionFighter.png")
@@ -31,7 +31,7 @@ class Constants:
     ARCADE_BLUE = os.path.join("Assets", "arcade_blue.png")
     AI_MK_IV_TRANSPARENT_512 = os.path.join("Assets", "AI_MK_IV_TRANS_512.png")
     AI_MK_IV_MIXER = os.path.join("Assets", "AI_MK_IV_Mixer.png")
-    CROSS_HAIRS = os.path.join("Assets", "CrossHairs.png")
+    CROSS_HAIRS = os.path.join("Assets", "CrossHairsYellow.png")
     CATS_EYES = os.path.join("Assets", "CatsEyes.png")
     HOW_RADAR_WORKS = os.path.join("Assets", "How_Radar_Works.png")
     MOBILE_RADAR = os.path.join("Assets", "Mobile_Radar.jpg")

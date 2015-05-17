@@ -20,7 +20,7 @@ class AI_MK_VIII_InfoScene(Scene):
         self.clear_text()
 
         # Draw Title
-        self.add_text('AI MK VIII Airbourne Interception RADAR', 390, 20, Colours.YELLOW, Colours.BLACK, 40)
+        self.add_text('AI MK VIII Airbourne Interception Radar', 390, 20, Colours.YELLOW, Colours.BLACK, 40)
 
         # Draw page body
         if self.__page == 1:
@@ -57,7 +57,7 @@ class AI_MK_VIII_InfoScene(Scene):
         self.add_text('Gone are the multiple aerials all to be replaced by a single transmit/receive aerial mounted at the centre', 148, 180, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('of the radar dish. The dish is mounted in the nose of the aircraft behind a transparent cover.', 148, 210, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('At 10cms(3000MHz) the radar beam is much narrower, almost operating like a torch beam, and thus the', 148, 240, Colours.YELLOW, Colours.BLACK, 28)
-        self.add_text('RADAR beam can be made to sweep around the sky looking for a target. The dish is used to focus the', 148, 270, Colours.YELLOW, Colours.BLACK, 28)
+        self.add_text('radar beam can be made to sweep around the sky looking for a target. The dish is used to focus the', 148, 270, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('beam and point it in the required direction. The dish is spun on its axis and initially the beam is directed', 148, 300, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('forwards. The dish is then progressively turned "off axis" thus sweeping a spiral in the sky in ', 148, 330, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('front of the aircraft. When it reaches a maximum spiral outwards it returns to the centre on an inwards', 148, 360, Colours.YELLOW, Colours.BLACK, 28)

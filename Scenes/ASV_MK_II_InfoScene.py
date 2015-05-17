@@ -31,10 +31,10 @@ class ASV_MK_II_InfoScene(Scene):
 
         # Draw footer
         self.add_text('Green button: find out more', 385, 720, Colours.YELLOW, Colours.BLACK, 32)
-        self.add_text('Blue button: home', 730, 720, Colours.YELLOW, Colours.BLACK, 32)
+        self.add_text('Blue button: home', 740, 720, Colours.YELLOW, Colours.BLACK, 32)
 
         self.get_game().screen.blit(self.__greenButtonSprite, (340, 718))
-        self.get_game().screen.blit(self.__blueButtonSprite, (690, 718))
+        self.get_game().screen.blit(self.__blueButtonSprite, (700, 718))
 
         Scene.render(self)
 
@@ -46,6 +46,7 @@ class ASV_MK_II_InfoScene(Scene):
 
                 if event.key == pygame.K_ESCAPE or event.key == ord('b'):
                     self.get_game().change_scene(Enums.Scene.FRONT)
+                    self.__page = 1
                 else:
                     pygame.mixer.stop()
 

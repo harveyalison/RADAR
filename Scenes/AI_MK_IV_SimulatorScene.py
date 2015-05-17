@@ -27,7 +27,7 @@ class AI_MK_IV_SimulatorScene(Scene):
         self.reset()
 
     def render(self):
-       
+
         self.clear_text()
 
         # Draw Title
@@ -37,16 +37,16 @@ class AI_MK_IV_SimulatorScene(Scene):
         self.add_text('The pilot can see nothing of the target until he is within', 158, 80, Colours.YELLOW, Colours.BLACK, 24)
         self.add_text('a few hundred yards, and must identify the target', 158, 110, Colours.YELLOW, Colours.BLACK, 24)
         self.add_text('aircraft visually as \'an enemy\' before opening fire.', 158, 140, Colours.YELLOW, Colours.BLACK, 24)
-        self.add_text('The left hand screen tells the RADAR operator if the', 158, 170, Colours.YELLOW, Colours.BLACK, 24)
+        self.add_text('The left hand screen tells the radar operator if the', 158, 170, Colours.YELLOW, Colours.BLACK, 24)
         self.add_text('target is above or below him. This is known as the', 158, 200, Colours.YELLOW, Colours.BLACK, 24)
-        self.add_text('\'elevation\'. In practice the RADAR screen is all', 158, 230, Colours.YELLOW, Colours.BLACK, 24)
+        self.add_text('\'elevation\'. In practice the radar screen is all', 158, 230, Colours.YELLOW, Colours.BLACK, 24)
         self.add_text('green and the echo is not easily seen, but for', 158, 260, Colours.YELLOW, Colours.BLACK, 24)
         self.add_text('demonstration purposes the target echo is shown', 158, 290, Colours.YELLOW, Colours.BLACK, 24)
         self.add_text('yellow. The \'Christmas tree\' noise is due to', 158, 320, Colours.YELLOW, Colours.BLACK, 24)
         self.add_text('reflections from the ground immediately below and', 158, 350, Colours.YELLOW, Colours.BLACK, 24)
         self.add_text('forward of the aircraft. Targets are lost in this noise', 158, 380, Colours.YELLOW, Colours.BLACK, 24)
         self.add_text('and the range is therefore limited to the height of the', 158, 410, Colours.YELLOW, Colours.BLACK, 24)
-        self.add_text('aircraft. The RADAR operator gives verbal instructions', 158, 440, Colours.YELLOW, Colours.BLACK, 24)
+        self.add_text('aircraft. The radar operator gives verbal instructions', 158, 440, Colours.YELLOW, Colours.BLACK, 24)
         self.add_text('to the pilot to bring the aircraft on the correct course', 158, 470, Colours.YELLOW, Colours.BLACK, 24)
         self.add_text('for interception, when the echoes on both screens are', 158, 500, Colours.YELLOW, Colours.BLACK, 24)
         self.add_text('equi-distant either side of the axis. The right hand', 158, 530, Colours.YELLOW, Colours.BLACK, 24)
@@ -54,10 +54,11 @@ class AI_MK_IV_SimulatorScene(Scene):
         self.add_text('the operator whether the target is to the left or right.', 158, 590, Colours.YELLOW, Colours.BLACK, 24)
         self.add_text('This is known as the \'azimuth\'.', 158, 620, Colours.YELLOW, Colours.BLACK, 24)
         # Draw Options
-        self.get_game().screen.blit(self.__greenButtonSprite, (158, 660))
-        self.add_text('Green button: new game', 195, 666, Colours.YELLOW, Colours.BLACK, 24)
-        self.get_game().screen.blit(self.__blueButtonSprite, (158, 700))
-        self.add_text('Blue button: home', 195, 706, Colours.YELLOW, Colours.BLACK, 24)
+        self.get_game().screen.blit(self.__blueButtonSprite, (158, 660))
+        self.add_text('Blue button: home', 195, 666, Colours.YELLOW, Colours.BLACK, 24)
+        #self.get_game().screen.blit(self.__greenButtonSprite, (158, 700F))
+        #self.add_text('Green button: try it out!', 195, 706, Colours.YELLOW, Colours.BLACK, 24)
+
 
         # Draw AI MK IV image
         self.get_game().screen.blit(self.__AI_MK_IV_Sprite, (608, 550))
@@ -66,7 +67,7 @@ class AI_MK_IV_SimulatorScene(Scene):
         self.add_text('Target azimuth (deg): ' + str(int(self.__targetAzEl[0])), 588, 25, Colours.YELLOW, Colours.BLACK, 16)
         self.add_text('Target elevation (deg): ' + str(int(self.__targetAzEl[1])), 588, 40, Colours.YELLOW, Colours.BLACK, 16)
 
-        fighterSpriteScaled = pygame.transform.scale(self.__nightVisionFighterSprite, (int(self.__targetSize[0]), int(self.__targetSize[1]))) 
+        fighterSpriteScaled = pygame.transform.scale(self.__nightVisionFighterSprite, (int(self.__targetSize[0]), int(self.__targetSize[1])))
         self.get_game().screen.blit(fighterSpriteScaled, (int(self.__targetPos[0] - fighterSpriteScaled.get_width()/2), int(self.__targetPos[1] - fighterSpriteScaled.get_height()/2)))
 
         # Draw shooting and explosion, if required
@@ -74,7 +75,7 @@ class AI_MK_IV_SimulatorScene(Scene):
             self.get_game().screen.blit(self.__explosionSprite, (self.__crossHairsCentre[0] - self.__explosionSprite.get_width()/2,self.__crossHairsCentre[1] - self.__explosionSprite.get_height()/2))
 
         self.get_game().screen.blit(self.__crossHairsSprite, (608, 20))
-        
+
         self.drawBackgroundNoise()
 
         # Draw el tube line
@@ -110,7 +111,7 @@ class AI_MK_IV_SimulatorScene(Scene):
         pygame.draw.aaline(self.get_game().screen, Colours.YELLOW, (rangexleft, rangey), (rangexright, rangey))
 
         Scene.render(self)
-       
+
     def drawBackgroundNoise(self):
         # Elevation tube
         for x in xrange(732, 820):
@@ -126,9 +127,19 @@ class AI_MK_IV_SimulatorScene(Scene):
 
     def updateTargetRange(self):
         if self.__targetRange >= 0.5:
-            self.__targetRange -= 0.005
+            # The bigger this is, the faster the target approaches every time updateState
+            # is called. Make smaller on faster processors e.g. 0.005
+            self.__targetRange -= 0.02 #  0.005
         else:
             self.__targetRange = self.__maximumRange
+
+    def updateTargetAngle(self):
+        if self.__targetAngle >= 360:
+            self.__targetAngle = 0
+        else:
+            # The bigger this is, the larger the angle moved every time updateState
+            # is called. Make smaller on faster processors e.g. 0.5
+            self.__targetAngle += 2
 
     def reset(self):
         self.__targetRange = self.__maximumRange
@@ -158,18 +169,14 @@ class AI_MK_IV_SimulatorScene(Scene):
 
          self.updateTargetRange()
 
+         self.updateTargetAngle()
+
          ratio = self.__targetRange / self.__maximumRange
 
          self.__targetSize[0] = (1 - ratio) * 386 + 125
          self.__targetSize[1] = (1 - ratio) * 75 + 25
 
          self.__targetRadius = ratio * self.__crossHairsRadius
-
-         if self.__targetAngle >= 360:
-             self.__targetAngle = 0
-         else:
-             self.__targetAngle += 0.5
-
 
          if self.__targetAngle >=0 and self.__targetAngle < 90: #TR quadrant
              azpx = self.__targetRadius * math.cos(math.radians(90 - self.__targetAngle))
@@ -203,6 +210,6 @@ class AI_MK_IV_SimulatorScene(Scene):
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_ESCAPE or event.key == ord('b'):
                     self.get_game().change_scene(Enums.Scene.FRONT)
-                if event.key == ord('c'):
-                    self.get_game().change_scene(Enums.Scene.AI_MK_IV_GAME)
+                #if event.key == ord('c'):
+                #    self.get_game().change_scene(Enums.Scene.AI_MK_IV_GAME)
 

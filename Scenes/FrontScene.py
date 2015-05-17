@@ -49,12 +49,12 @@ class FrontScene(Scene):
 
         # Draw label at the top
         self.clear_text()
-        self.add_text('RADAR - seeing in the dark!', 328, 20, Colours.YELLOW, Colours.BLACK, 64)
+        self.add_text('Radar - seeing in the dark!', 328, 20, Colours.YELLOW, Colours.BLACK, 64)
 
         # Draw Labels at bottom
         self.add_text('Press the green button to find out more!', 428, 735, Colours.YELLOW, Colours.BLACK, 32)
         self.get_game().screen.blit(self.__greenButtonSprite, (378, 730))
-        self.get_game().screen.blit(self.__greenButtonSprite, (868, 730))
+        self.get_game().screen.blit(self.__greenButtonSprite, (878, 730))
 
         Scene.render(self)
 

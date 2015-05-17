@@ -12,7 +12,7 @@ class AI_MK_VIII_GameScene(Scene):
         self.clear_text()
 
         # Draw Title
-        self.add_text('AI MK IV Airbourne Interception RADAR', 285, 20, Colours.GREEN, Colours.BLACK, 32)
+        self.add_text('AI MK IV Airbourne Interception Radar', 285, 20, Colours.GREEN, Colours.BLACK, 32)
 
         Scene.render(self)
 

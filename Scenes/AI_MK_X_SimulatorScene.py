@@ -12,7 +12,7 @@ class AI_MK_X_SimulatorScene(Scene):
         self.clear_text()
 
         # Draw Title
-        self.add_text('AI MK X Airbourne Interception RADAR Game Info', 285, 20, Colours.GREEN, Colours.BLACK, 32)
+        self.add_text('AI MK X Airbourne Interception Radar Game Info', 285, 20, Colours.GREEN, Colours.BLACK, 32)
 
         Scene.render(self)
 

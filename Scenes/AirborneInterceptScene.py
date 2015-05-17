@@ -17,7 +17,7 @@ class AirborneInterceptScene(Scene):
         self.clear_text()
 
         # Draw Title
-        self.add_text('Airbourne Interception RADAR', 420, 20, Colours.YELLOW, Colours.BLACK, 40)
+        self.add_text('Airbourne Interception Radar', 420, 20, Colours.YELLOW, Colours.BLACK, 40)
 
         # Draw page body
         if self.__page == 1:
