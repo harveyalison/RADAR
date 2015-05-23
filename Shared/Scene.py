@@ -2,7 +2,6 @@ import pygame
 from Shared.Enums import *
 from Shared.Colours import *
 
-
 class Scene:
     def __init__(self, game):
         self.__game = game

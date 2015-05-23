@@ -13,7 +13,9 @@ class AI_MK_IV_InfoScene(Scene):
             self.__AI_MK4_INDICATOR_Sprite = pygame.image.load(Constants.AI_MK4_INDICATOR)
             self.__AI_MK4_MIXER_Sprite = pygame.image.load(Constants.AI_MK_IV_MIXER)
             self.__AI_MK4_TRACE_Sprite = pygame.image.load(Constants.AI_MK4_TRACE)
-            self.__AI_MK4_VOICE_Sound = pygame.mixer.Sound(Constants.AI_MK4_VOICE)
+            self.__AI_MK4_EQUIPMENT_VOICE_Sound = pygame.mixer.Sound(Constants.AI_MK4_EQUIPMENT_VOICE)
+            self.__AI_MK4_INDICATOR_VOICE_Sound = pygame.mixer.Sound(Constants.AI_MK4_INDICATOR_VOICE)
+            self.__AI_MK4_RECEIVER_VOICE_Sound = pygame.mixer.Sound(Constants.AI_MK4_RECEIVER_VOICE)
             self.__greenButtonSprite = pygame.image.load(Constants.ARCADE_GREEN)
             self.__redButtonSprite = pygame.image.load(Constants.ARCADE_RED)
             self.__blueButtonSprite = pygame.image.load(Constants.ARCADE_BLUE)
@@ -87,7 +89,11 @@ class AI_MK_IV_InfoScene(Scene):
     def start(self):
 
         if self.__page == 1:
-            self.__AI_MK4_VOICE_Sound.play()
+            self.__AI_MK4_EQUIPMENT_VOICE_Sound.play()
+        elif self.__page == 2:
+            self.__AI_MK4_RECEIVER_VOICE_Sound.play()
+        elif self.__page == 3:
+            self.__AI_MK4_INDICATOR_VOICE_Sound.play()
 
         Scene.start(self)
 
@@ -98,13 +104,13 @@ class AI_MK_IV_InfoScene(Scene):
 
         self.add_text('THE EQUIPMENT', 148, 80, Colours.YELLOW, Colours.BLACK, 32)
 
-        self.add_text('The AI Mk 4 was the first night fighter Radar to enter service', 148, 120, Colours.YELLOW, Colours.BLACK, 28)
+        self.add_text('The AI Mk 4 was the first night fighter radar to enter service', 148, 120, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('in late 1940. It was introduced as a response to the change of', 148, 150, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('tactics that the Germans had taken, in moving away from', 148, 180, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('daylight raids to bombing at night. It was initially installed', 148, 210, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('in Blenheims, but continued on, being installed in the', 148, 240, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('Beaufighter and even into the early Mosquitoes until later', 148, 270, Colours.YELLOW, Colours.BLACK, 28)
-        self.add_text('Radars were developed. The Radar transmitted 20uS', 148, 300, Colours.YELLOW, Colours.BLACK, 28)
+        self.add_text('radars were developed. The radar transmitted 20uS', 148, 300, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('pulses from an aerial fitted on the nose of the aircraft, in a', 148, 330, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('wide forward beam and at a frequency of 195 MHz. Four', 148, 360, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('receiving aerials, each with a relatively narrow beam, were', 148, 390, Colours.YELLOW, Colours.BLACK, 28)

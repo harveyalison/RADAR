@@ -9,6 +9,7 @@ class AirborneInterceptScene(Scene):
             Scene.__init__(self, game)
             self.__MK_VIII_IN_BEAUFIGHTER_Sprite = pygame.image.load(Constants.MK_VIII_IN_BEAUFIGHTER)
             self.__blueButtonSprite = pygame.image.load(Constants.ARCADE_BLUE)
+            self.__AIRBORNE_INTERCEPTION_RADAR_VOICE_Sound = pygame.mixer.Sound(Constants.AIRBORNE_INTERCEPTION_RADAR_VOICE)
 
         self.__page = 1
 
@@ -17,7 +18,7 @@ class AirborneInterceptScene(Scene):
         self.clear_text()
 
         # Draw Title
-        self.add_text('Airbourne Interception Radar', 420, 20, Colours.YELLOW, Colours.BLACK, 40)
+        self.add_text('Airborne Interception Radar', 420, 20, Colours.YELLOW, Colours.BLACK, 40)
 
         # Draw page body
         if self.__page == 1:
@@ -36,6 +37,13 @@ class AirborneInterceptScene(Scene):
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_ESCAPE or event.key == ord('b'):
                     self.get_game().change_scene(Enums.Scene.FRONT)
+
+    def start(self):
+
+        if self.__page == 1:
+            self.__AIRBORNE_INTERCEPTION_RADAR_VOICE_Sound.play()
+
+        Scene.start(self)
 
     def updateState(self):
          Scene.updateState(self)

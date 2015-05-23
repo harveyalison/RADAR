@@ -13,6 +13,8 @@ class ASV_MK_II_InfoScene(Scene):
             self.__greenButtonSprite = pygame.image.load(Constants.ARCADE_GREEN)
             self.__redButtonSprite = pygame.image.load(Constants.ARCADE_RED)
             self.__blueButtonSprite = pygame.image.load(Constants.ARCADE_BLUE)
+            self.__ASV_MK2_EQUIPMENT_VOICE_Sound = pygame.mixer.Sound(Constants.ASV_MK2_EQUIPMENT_VOICE)
+            self.__ASV_MK2_DISPLAY_VOICE_Sound = pygame.mixer.Sound(Constants.ASV_MK2_DISPLAY_VOICE)
 
         self.__page = 1
 
@@ -70,7 +72,9 @@ class ASV_MK_II_InfoScene(Scene):
     def start(self):
 
         if self.__page == 1:
-            pass  # self.__AI_MK4_VOICE_Sound.play()
+            self.__ASV_MK2_EQUIPMENT_VOICE_Sound.play()
+        elif self.__page == 2:
+            self.__ASV_MK2_DISPLAY_VOICE_Sound.play()
 
         Scene.start(self)
 

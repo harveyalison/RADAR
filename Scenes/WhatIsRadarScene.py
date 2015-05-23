@@ -12,6 +12,8 @@ class WhatIsRadarScene(Scene):
             self.__greenButtonSprite = pygame.image.load(Constants.ARCADE_GREEN)
             self.__redButtonSprite = pygame.image.load(Constants.ARCADE_RED)
             self.__blueButtonSprite = pygame.image.load(Constants.ARCADE_BLUE)
+            self.__WHAT_IS_RADAR_VOICE_Sound = pygame.mixer.Sound(Constants.WHAT_IS_RADAR_VOICE)
+            self.__HOW_RADAR_WORKS_VOICE_Sound = pygame.mixer.Sound(Constants.HOW_RADAR_WORKS_VOICE)
 
         self.__page = 1
 
@@ -69,7 +71,9 @@ class WhatIsRadarScene(Scene):
     def start(self):
 
         if self.__page == 1:
-            pass  # self.__AI_MK4_VOICE_Sound.play()
+            self.__WHAT_IS_RADAR_VOICE_Sound.play()
+        elif self.__page == 2:
+            self.__HOW_RADAR_WORKS_VOICE_Sound.play()
 
         Scene.start(self)
 
@@ -77,7 +81,7 @@ class WhatIsRadarScene(Scene):
         Scene.updateState(self)
 
     def renderPage1(self):
-        self.add_text('What is radar?', 148, 120, Colours.YELLOW,
+        self.add_text('What is Radar?', 148, 120, Colours.YELLOW,
                       Colours.BLACK, 28)
         self.add_text('', 148, 150, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('We can see objects in the world around us because light', 148, 180, Colours.YELLOW, Colours.BLACK, 28)
@@ -102,7 +106,7 @@ class WhatIsRadarScene(Scene):
         self.get_game().screen.blit(self.__MOBILE_RADAR_Sprite, (795, 120))
 
     def renderPage2(self):
-        self.add_text('Here\'s a summary of how radar works:', 148, 120, Colours.YELLOW, Colours.BLACK, 28)
+        self.add_text('Here is a summary of how radar works:', 148, 120, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('', 148, 150, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('1: Magnetron generates high-frequency radio waves.', 148, 180, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('2: Switch sends signal through to antenna.', 148, 210, Colours.YELLOW, Colours.BLACK, 28)

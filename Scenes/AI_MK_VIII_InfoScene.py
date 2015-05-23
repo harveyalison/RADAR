@@ -12,6 +12,7 @@ class AI_MK_VIII_InfoScene(Scene):
             self.__greenButtonSprite = pygame.image.load(Constants.ARCADE_GREEN)
             self.__redButtonSprite = pygame.image.load(Constants.ARCADE_RED)
             self.__blueButtonSprite = pygame.image.load(Constants.ARCADE_BLUE)
+            self.__AI_MK8_EQUIPMENT_VOICE_Sound = pygame.mixer.Sound(Constants.AI_MK_VIII_EQUIPMENT_VOICE)
 
         self.__page = 1
 
@@ -44,6 +45,14 @@ class AI_MK_VIII_InfoScene(Scene):
                     self.get_game().change_scene(Enums.Scene.FRONT)
                 #elif event.key == ord('a'):
                 #    self.get_game().change_scene(Enums.Scene.AI_MK_IV_SIMULATOR)
+
+    def start(self):
+
+        if self.__page == 1:
+            self.__AI_MK8_EQUIPMENT_VOICE_Sound.play()
+
+        Scene.start(self)
+
 
     def updateState(self):
          Scene.updateState(self)

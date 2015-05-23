@@ -19,6 +19,10 @@ class AI_MK_IV_SimulatorScene(Scene):
             self.__greenButtonSprite = pygame.image.load(Constants.ARCADE_GREEN)
             self.__blueButtonSprite = pygame.image.load(Constants.ARCADE_BLUE)
 
+            self.__AIRCRAFT_ENGINE_NOISE_Sound = pygame.mixer.Sound(Constants.AIRCRAFT_ENGINE_NOISE)
+            self.__APPROACH_AND_SHOTS_Sound = pygame.mixer.Sound(Constants.APPROACH_AND_SHOTS)
+            self.__EXPLOSION_Sound = pygame.mixer.Sound(Constants.EXPLOSION_NOISE)
+
         self.__maximumRange = 3.500
         self.__crossHairsCentre = (864, 275)
         self.__crossHairsRadius = 200
@@ -152,6 +156,18 @@ class AI_MK_IV_SimulatorScene(Scene):
         targetY = self.__targetRadius * math.sin(math.radians(self.__targetAngle))
         self.__targetPos = [self.__crossHairsCentre[0] + targetX, self.__crossHairsCentre[1] - targetY]
 
+    def restartSounds(self):
+        self.__AIRCRAFT_ENGINE_NOISE_Sound.stop()
+        self.__AIRCRAFT_ENGINE_NOISE_Sound.play()
+        self.__APPROACH_AND_SHOTS_Sound.play()
+
+    def start(self):
+
+        self.__AIRCRAFT_ENGINE_NOISE_Sound.play()
+        self.__APPROACH_AND_SHOTS_Sound.play()
+
+        Scene.start(self)
+
     def updateState(self):
          Scene.updateState(self)
 
@@ -160,11 +176,13 @@ class AI_MK_IV_SimulatorScene(Scene):
              if self.__shootingCounter >= 200:
                  self.__shooting = False
                  self.reset()
+                 self.restartSounds()
              return
 
          elif self.__targetRadius <= 30:
              self.__shooting = True
              self.__shootingCounter = 0
+             self.__EXPLOSION_Sound.play()
 
 
          self.updateTargetRange()

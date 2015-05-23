@@ -15,6 +15,9 @@ class AI_MK_X_InfoScene(Scene):
             self.__greenButtonSprite = pygame.image.load(Constants.ARCADE_GREEN)
             self.__redButtonSprite = pygame.image.load(Constants.ARCADE_RED)
             self.__blueButtonSprite = pygame.image.load(Constants.ARCADE_BLUE)
+            self.__AI_MKX_EQUIPMENT_VOICE_Sound = pygame.mixer.Sound(Constants.AI_MKX_EQUIPMENT_VOICE)
+            self.__AI_MKX_EQUIPMENT_CONTINUED_VOICE_Sound = pygame.mixer.Sound(Constants.AI_MKX_EQUIPMENT_CONTINUED_VOICE)
+            self.__AI_MKX_INDICATOR_VOICE_Sound = pygame.mixer.Sound(Constants.AI_MKX_INDICATOR_VOICE)
 
         self.__page = 1
 
@@ -85,7 +88,11 @@ class AI_MK_X_InfoScene(Scene):
     def start(self):
 
         if self.__page == 1:
-            pass #self.__AI_MK4_VOICE_Sound.play()
+            self.__AI_MKX_EQUIPMENT_VOICE_Sound.play()
+        elif self.__page == 2:
+            self.__AI_MKX_EQUIPMENT_CONTINUED_VOICE_Sound.play()
+        elif self.__page == 3:
+            self.__AI_MKX_INDICATOR_VOICE_Sound.play()
 
         Scene.start(self)
 
@@ -96,7 +103,7 @@ class AI_MK_X_InfoScene(Scene):
 
         self.add_text('THE EQUIPMENT', 60, 80, Colours.YELLOW, Colours.BLACK, 32)
 
-        self.add_text('The AI MK X is a modified version of the American SCR 720 Radar. It required a two man crew,', 60, 120, Colours.YELLOW, Colours.BLACK, 28)
+        self.add_text('The AI MK X is a modified version of the American SCR 720 radar. It required a two man crew,', 60, 120, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('the operator giving instructions to the pilot over the intercom. It was used in aircraft like the', 60, 150, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('Mosquito for nightfighter operations. The system radiates 0.75 microsecond pulses in the ', 60, 180, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('centimetric band at 9.1 cms. The peak power being approximately 70 KW. The aerial system,', 60, 210, Colours.YELLOW, Colours.BLACK, 28)
@@ -109,7 +116,7 @@ class AI_MK_X_InfoScene(Scene):
         self.add_text('being adopted, and the American MK X was used instead.', 60, 420, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('', 60, 450, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('The MK VIII scanning system was what is termed a \'spiral scan\'. In this system the dish is rotated about its axis and gradually', 60, 480, Colours.YELLOW, Colours.BLACK, 28)
-        self.add_text('deflected sideways, tracing out a spiral in the sky, out to an angle of about 45 degrees, The deflection then returns slowly to the ', 60, 510, Colours.YELLOW, Colours.BLACK, 28)
+        self.add_text('deflected sideways, tracing out a spiral in the sky, out to an angle of about 45 degrees.s The deflection then returns slowly to the ', 60, 510, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('zero position when the process is repeated.', 60, 540, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('', 60, 570, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('', 60, 600, Colours.YELLOW, Colours.BLACK, 28)
@@ -160,7 +167,7 @@ class AI_MK_X_InfoScene(Scene):
         self.add_text('Bar and two simulated targets. The Range Marker Bar is just intercepting', 60, 450, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('the second target, the spot of which can just be seen on the LH tube.', 60, 480, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('Electronic noise has been added to this trace to give it a realistic effect. ', 60, 510, Colours.YELLOW, Colours.BLACK, 28)
-        self.add_text('The two targets can be moved independently in all three axis i.e. range,', 60, 540, Colours.YELLOW, Colours.BLACK, 28)
+        self.add_text('The two targets can be moved independently in all three axess i.e. range,', 60, 540, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('azimuth and elevation controls from the simulator control box.', 60, 570, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('', 60, 600, Colours.YELLOW, Colours.BLACK, 28)
         self.add_text('', 60, 630, Colours.YELLOW, Colours.BLACK, 28)
